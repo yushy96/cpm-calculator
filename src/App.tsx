@@ -652,134 +652,132 @@ export default function CalculatorWireframePreview() {
 
           </aside>
 
-          <main className="space-y-6">
-            {isTwitch ? (
-              <section className="rounded-3xl p-4 shadow-sm" style={cardStyle}>
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <h2 className="text-[22px] font-bold" style={{ letterSpacing: "-0.02em", color: COLORS.text }}>
-                      {t.streamReach}
-                    </h2>
-                  </div>
-                  <form action="https://twitchtracker.com/channels/ranking" method="get" target="_blank" className="m-0">
-                    <button
-                      type="submit"
-                      className="rounded-2xl px-3 py-1.5 text-sm font-semibold transition-colors"
-                      style={{ border: `1px solid ${COLORS.border2}`, background: COLORS.page, color: COLORS.chipText }}
-                    >
-                      TwitchTracker
-                    </button>
-                  </form>
-                </div>
-
-                <div className="mt-5 grid items-end gap-4 md:grid-cols-2">
-                  <div className="flex h-full flex-col justify-between">
-                    <label style={labelStyle}>{t.avgOnline}</label>
-                    <input style={inputStyle} value={avgOnline} onChange={(e) => setAvgOnline(e.target.value)} placeholder={t.placeholderAvgOnline} />
-                  </div>
-                  <div className="flex h-full flex-col justify-between">
-                    <label style={labelStyle}>{t.streamHours}</label>
-                    <input style={inputStyle} value={streamHours} onChange={(e) => setStreamHours(e.target.value)} placeholder={t.placeholderHours} />
-                  </div>
-                </div>
-
-                <div className="mt-5 rounded-2xl p-4" style={softCardStyle}>
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs font-semibold uppercase" style={{ letterSpacing: "0.12em", color: COLORS.softText }}>
-                      {t.streamReachResult}
-                    </p>
-                    <p className="text-xl font-bold" style={{ letterSpacing: "-0.02em", color: COLORS.text }}>
-                      {formatNumber(streamReach)}
-                    </p>
-                  </div>
-                </div>
-
-                {!compact && (
-                  <div className="mt-5 rounded-2xl p-4 text-sm" style={softCardStyle}>
-                    <span style={{ color: COLORS.muted }}>{t.formulaStreamReach}: </span>
-                    <span style={{ fontWeight: 700, color: COLORS.text }}>Average online × Hours × 4</span>
-                  </div>
-                )}
-              </section>
-            ) : (
-  <>
+         <main className="space-y-6">
+  {isTwitch ? (
     <section className="rounded-3xl p-4 shadow-sm" style={cardStyle}>
-                <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                  <div>
-                    <h2 className="text-[22px] font-bold" style={{ letterSpacing: "-0.02em", color: COLORS.text }}>
-                      {t.reach}
-                    </h2>
-                    {!compact && <p className="mt-1 text-sm" style={{ color: COLORS.muted }}>{t.reachHint}</p>}
-                  </div>
-                  {!compact && (
-                    <button
-                      type="button"
-                      onClick={addReachField}
-                      className="inline-flex items-center gap-2 whitespace-nowrap rounded-2xl px-3 py-1.5 text-sm font-semibold transition-colors"
-                      style={{ border: `1px solid ${COLORS.border2}`, background: COLORS.page, color: COLORS.chipText }}
-                    >
-                      <span className="text-base leading-none">+</span>
-                      <span>{addReachText}</span>
-                    </button>
-                  )}
-                </div>
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <h2 className="text-[22px] font-bold" style={{ letterSpacing: "-0.02em", color: COLORS.text }}>
+            {t.streamReach}
+          </h2>
+        </div>
+        <form action="https://twitchtracker.com/channels/ranking" method="get" target="_blank" className="m-0">
+          <button
+            type="submit"
+            className="rounded-2xl px-3 py-1.5 text-sm font-semibold transition-colors"
+            style={{ border: `1px solid ${COLORS.border2}`, background: COLORS.page, color: COLORS.chipText }}
+          >
+            TwitchTracker
+          </button>
+        </form>
+      </div>
 
-                {compact ? (
-  <div className="mt-5">
-    <input
-      style={inputStyle}
-      value={shortReach}
-      onChange={(e) => setShortReach(e.target.value)}
-      placeholder={t.placeholderReach}
-    />
-  </div>
-) : (
-  <div>
-    <div className="grid gap-3 md:grid-cols-2">
-      {reachValues.map((value, index) => (
-        <div key={index} className="flex gap-2">
+      <div className="mt-5 grid items-end gap-4 md:grid-cols-2">
+        <div className="flex h-full flex-col justify-between">
+          <label style={labelStyle}>{t.avgOnline}</label>
+          <input style={inputStyle} value={avgOnline} onChange={(e) => setAvgOnline(e.target.value)} placeholder={t.placeholderAvgOnline} />
+        </div>
+        <div className="flex h-full flex-col justify-between">
+          <label style={labelStyle}>{t.streamHours}</label>
+          <input style={inputStyle} value={streamHours} onChange={(e) => setStreamHours(e.target.value)} placeholder={t.placeholderHours} />
+        </div>
+      </div>
+
+      <div className="mt-5 rounded-2xl p-4" style={softCardStyle}>
+        <div className="flex items-center justify-between gap-4">
+          <p className="text-xs font-semibold uppercase" style={{ letterSpacing: "0.12em", color: COLORS.softText }}>
+            {t.streamReachResult}
+          </p>
+          <p className="text-xl font-bold" style={{ letterSpacing: "-0.02em", color: COLORS.text }}>
+            {formatNumber(streamReach)}
+          </p>
+        </div>
+      </div>
+
+      {!compact && (
+        <div className="mt-5 rounded-2xl p-4 text-sm" style={softCardStyle}>
+          <span style={{ color: COLORS.muted }}>{t.formulaStreamReach}: </span>
+          <span style={{ fontWeight: 700, color: COLORS.text }}>Average online × Hours × 4</span>
+        </div>
+      )}
+    </section>
+  ) : (
+    <section className="rounded-3xl p-4 shadow-sm" style={cardStyle}>
+      <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2 className="text-[22px] font-bold" style={{ letterSpacing: "-0.02em", color: COLORS.text }}>
+            {t.reach}
+          </h2>
+          {!compact && <p className="mt-1 text-sm" style={{ color: COLORS.muted }}>{t.reachHint}</p>}
+        </div>
+        {!compact && (
+          <button
+            type="button"
+            onClick={addReachField}
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-2xl px-3 py-1.5 text-sm font-semibold transition-colors"
+            style={{ border: `1px solid ${COLORS.border2}`, background: COLORS.page, color: COLORS.chipText }}
+          >
+            <span className="text-base leading-none">+</span>
+            <span>{addReachText}</span>
+          </button>
+        )}
+      </div>
+
+      {compact ? (
+        <div className="mt-5">
           <input
             style={inputStyle}
-            value={value}
-            onChange={(e) => updateReachField(index, e)}
+            value={shortReach}
+            onChange={(e) => setShortReach(e.target.value)}
+            placeholder={t.placeholderReach}
           />
-
-          {reachValues.length > 1 && (
-            <button
-              type="button"
-              onClick={() => removeReachField(index)}
-              className="shrink-0 rounded-2xl px-3 py-2 text-sm font-semibold"
-              style={{
-                border: `1px solid ${COLORS.border2}`,
-                background: COLORS.page,
-                color: COLORS.chipText,
-              }}
-            >
-              {t.remove}
-            </button>
-          )}
         </div>
-      ))}
-    </div>
+      ) : (
+        <div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {reachValues.map((value, index) => (
+              <div key={index} className="flex gap-2">
+                <input
+                  style={inputStyle}
+                  value={value}
+                  onChange={(e) => updateReachField(index, e)}
+                />
 
-    <div
-      className="mt-5 grid gap-4 rounded-2xl p-4 md:grid-cols-3"
-      style={softCardStyle}
-    >
-      <MetricCard label={t.totalReach} value={formatNumber(totalReach)} />
-      <MetricCard label={t.fieldsCount} value={formatNumber(filledCount)} />
-      <MetricCard label={t.avgReach} value={formatNumber(averageReach)} />
-    </div>
-  </div>
-)}
-</section>
+                {reachValues.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => removeReachField(index)}
+                    className="shrink-0 rounded-2xl px-3 py-2 text-sm font-semibold"
+                    style={{
+                      border: `1px solid ${COLORS.border2}`,
+                      background: COLORS.page,
+                      color: COLORS.chipText,
+                    }}
+                  >
+                    {t.remove}
+                  </button>
+                )}
+              </div>
+            ))}
+          </div>
 
-            <section className="grid gap-6 lg:grid-cols-[1fr_360px]">
-      {dataBlock}
-      {resultBlock}
+          <div
+            className="mt-5 grid gap-4 rounded-2xl p-4 md:grid-cols-3"
+            style={softCardStyle}
+          >
+            <MetricCard label={t.totalReach} value={formatNumber(totalReach)} />
+            <MetricCard label={t.fieldsCount} value={formatNumber(filledCount)} />
+            <MetricCard label={t.avgReach} value={formatNumber(averageReach)} />
+          </div>
+        </div>
+      )}
     </section>
-    </>
-)}
+  )}
+
+  <section className="grid gap-6 lg:grid-cols-[1fr_360px]">
+    {dataBlock}
+    {resultBlock}
+  </section>
 </main>
 </div>
 </div>
