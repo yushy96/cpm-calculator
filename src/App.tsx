@@ -778,8 +778,6 @@ export default function CalculatorWireframePreview() {
       {dataBlock}
       {resultBlock}
     </section>
-  </>
-)}
 </main>
 </div>
 </div>
