@@ -774,14 +774,15 @@ export default function CalculatorWireframePreview() {
   </div>
 )}
 </section>
-
+</>
+) : (
+<>
             <section className="grid gap-6 lg:grid-cols-[1fr_360px]">
       {dataBlock}
       {resultBlock}
     </section>
   </>
-        ) : (
-)}
+       )}
 </main>
 </div>
 </div>
