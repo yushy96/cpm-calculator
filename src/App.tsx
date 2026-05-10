@@ -654,6 +654,7 @@ export default function CalculatorWireframePreview() {
 
           <main className="space-y-6">
             {isTwitch ? (
+      <>
               <section className="rounded-3xl p-4 shadow-sm" style={cardStyle}>
                 <div className="flex items-center justify-between gap-4">
                   <div>
@@ -779,6 +780,7 @@ export default function CalculatorWireframePreview() {
       {resultBlock}
     </section>
   </>
+        ) : (
 )}
 </main>
 </div>
